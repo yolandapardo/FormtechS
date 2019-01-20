@@ -1,0 +1,167 @@
+﻿@model FormtechS.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FORMTECH</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
+    
+</head>
+<body>
+    
+    <div class="container body-content">
+        <h2>Details</h2>
+
+        <div>
+            <h4>Order</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Client.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Client.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Company.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Company.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description.Lot)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description.Lot)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TypeOfSurvey.Type)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TypeOfSurvey.Type)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ContactPerson)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ContactPerson)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Precio)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Fecha)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.JobNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.JobNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ReferenceNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ReferenceNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Panel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Panel)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Suffix)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Suffix)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FloodZone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FloodZone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Elevation)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Elevation)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+            
+        </p>
+        
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿body {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse {
+       background-color: #2e5bd2;
+    border-color: #492954;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #dde8dd;
+}   
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #2e5bd2;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #3f1954;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #dde8dd;
+}
+div.cont{
+    text-align:justify;
+}
+div.color{
+    background-color:#2e5bd2;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Wrapper for page content to push down footer */
+ #wrap {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   /* Negative indent footer by it's height */
+  /* margin: 0 auto -60px;*/
+ }
+
+ #footer {
+   height: 240px;
+ }
+ 
+#footer {
+  background-color: #2e5bd2;
+}
+.fo{
+    color:#dde8dd;
+    position:relative;
+    top:15px;
+}
+
+.social {
+  background: url('http://arunendapally.com/themes/CustomTheme/ss.png');
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.facebook {
+  background-position: -0px -0px;
+}
+.linkedin {
+  background-position: -0px -42px;
+}
+
+.twitter {
+  background-position: -0px -84px;
+}
+
+.googleplus {
+  background-position: -0px -126px;
+}
+ .aEmail{
+     color:#dde8dd;
+ }
+ .aEmail:hover{
+     color:darkgray;
+ }
+ .aEmail:visited{
+     color:lightgray;
+ }
+ .aEmail:checked{
+     color:lightgray;
+ }

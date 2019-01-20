@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FORMTECH</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("FORMTECH", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Order", "Index", "Orders")</li>
+                    <li>@Html.ActionLink("Company", "Index", "Companies")</li>
+                    <li>@Html.ActionLink("Type of Survey", "Index", "TypeOfSurveys")</li>
+                @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("User", "Index", "Users")</li>
+                }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div id="wrap">
+    <div class="container body-content">
+        @RenderBody()
+     </div>
+        </div>
+       
+    <!-- Footer -->
+    <footer id="footer">
+
+        <!-- Footer Elements -->
+        <div class="container">
+            <br />
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                
+                <li class="list-inline-item">
+                    <a href="https://www.facebook.com/FormtechSurveyors/"
+                       class="social facebook">
+                                            </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social linkedin" href="https://www.linkedin.com/FormtechSurveyors/">
+                        
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social twitter" href="https://www.twitter.com/FormtechSurveyors/">
+                    </a>
+                </li>
+                
+            </ul>
+            <!-- Social buttons -->
+            <div style="color:#dde8dd" class="text-center">
+                <h5 >
+                    Contact:
+                </h5>
+                
+                <p>
+                    <i class="fa fa-home"></i> 12209 S.W. 129th Court Miami, FL 33186
+                </p>
+                <p>
+                    <i class="fa fa-envelope mr-3"></i> <a class="aEmail" href="mailto:formtechsurveyors@gmail.com">formtechsurveyors@gmail.com</a>
+                </p>
+                <p>
+                    <i class="fa fa-phone mr-3"></i> + 786 443 0285
+                </p>
+            </div>
+        </div>
+        <!-- Footer Elements -->
+        <!-- Copyright -->
+        <div class="text-center fo">
+            © 2018 Copyright:
+            Yolanda Pardo
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

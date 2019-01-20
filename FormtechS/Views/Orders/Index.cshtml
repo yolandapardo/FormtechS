@@ -1,0 +1,142 @@
+﻿@model PagedList.IPagedList<FormtechS.Models.Order>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Orders";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<h2>Orders</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+{
+    <p>
+        Find by Job Number: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @id="SearchString"})
+        <input type="submit" value="Search" class="btn-primary" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Job Number", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Reference Number
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Zip Code
+        </th>
+        <th>
+            Client
+        </th>
+        <th>
+            Company
+        </th>
+        <th>
+           Type of Survey
+        </th>
+        <th>
+            Contact Person
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        
+      <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReferenceNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfSurvey.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("Employee")))
+             {@:| 
+                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                @:|
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            }
+        </td>
+
+    </tr>
+}
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#SearchString").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '@Url.Action("AutoComplete","Orders")',
+                        type: "POST",
+                        dataType: "json",
+                        data: { prefix: $("#SearchString").val() },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item, value: item };
+                            }));
+
+                        },
+                        error: function (xhr, status, error) {
+                            alert("Error");
+                        }
+                    });
+                }
+            });
+        })
+    </script>
+    
